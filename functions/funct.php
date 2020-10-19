@@ -348,7 +348,7 @@ class App extends DB
 			$message = "A new found person has been posted to our website. Please visit and check";
 		}
 
-		foreach ($users as $$value) {
+		foreach ($users as $value) {
 			$this->send($value->phone, $message);
 		}
 	}
@@ -357,8 +357,8 @@ class App extends DB
 	{
 		$username   = "swiss";
 		$apikey     = "44456f41910a7a109efabeefa993b4a79bd9315b3d9a4816f30bf18ef1387fa6";
-		$recipients = "+254795519374";
-		$message    = "Hello Member,your loan repayment is complete";
+		$recipients = $phone;
+		$message    = $message;
 		$gateway    = new AfricasTalkingGateway($username, $apikey);
 		try {
 			$results = $gateway->sendMessage($phone, $message);
